@@ -53,14 +53,9 @@ services:
       PROXY_ADDRESS_FORWARDING: 'true'
       KEYCLOAK_LOGLEVEL: WARN
     volumes:
-      - /srv/docker/keycloak-theme/govuk/:/opt/jboss/keycloak/themes/govuk/
-      - /srv/docker/keycloak-theme/govuk-internal/:/opt/jboss/keycloak/themes/govuk-internal/
-      - /srv/docker/keycloak-theme/govuk-internal-cba/:/opt/jboss/keycloak/themes/govuk-internal-cba/
-      - /srv/docker/keycloak-theme/govuk-internal-dq/:/opt/jboss/keycloak/themes/govuk-internal-dq/
-      - /srv/docker/keycloak-theme/govuk-cop/:/opt/jboss/keycloak/themes/govuk-cop/
-      - /srv/docker/keycloak-theme/hmpo-lev/:/opt/jboss/keycloak/themes/hmpo-lev/
-      - /srv/docker/keycloak-theme/govuk-social-providers/:/opt/jboss/keycloak/themes/govuk-social-providers/
-      - /srv/docker/keycloak-theme/govuk-drt/:/opt/jboss/keycloak/themes/govuk-drt/
+      - type: bind
+        source: /srv/docker/keycloak-theme/theme
+        target: /opt/jboss/keycloak/themes/europeana
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/"]
       interval: 10s
