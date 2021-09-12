@@ -33,7 +33,7 @@ services:
 
   keycloak:
     # Image tag (replace with yours)
-    image: jboss/keycloak:15.0.2
+    image: playaru/keycloak-russian
     environment:
       DB_VENDOR: postgres
       DB_ADDR: postgres
@@ -52,10 +52,6 @@ services:
       JGROUPS_DISCOVERY_PROPERTIES: datasource_jndi_name=java:jboss/datasources/KeycloakDS,info_writer_sleep_time=500,initialize_sql="CREATE TABLE IF NOT EXISTS JGROUPSPING ( own_addr varchar(200) NOT NULL, cluster_name varchar(200) NOT NULL, created timestamp default current_timestamp, ping_data BYTEA, constraint PK_JGROUPSPING PRIMARY KEY (own_addr, cluster_name))"
       PROXY_ADDRESS_FORWARDING: 'true'
       KEYCLOAK_LOGLEVEL: WARN
-    volumes:
-      - type: bind
-        source: /srv/docker/keycloak-theme/theme
-        target: /opt/jboss/keycloak/themes/europeana
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/"]
       interval: 10s
