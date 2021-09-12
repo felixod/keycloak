@@ -45,7 +45,7 @@ services:
       # Database password (replace with yours)
       DB_PASSWORD: EqhvLbsPhrkkZjcaGWcV7qT
       # Keycloak user (replace with yours)
-      KEYCLOAK_USER: keycloakadmin
+      KEYCLOAK_USER: adminsamgups
       # Keycloak password (replace with yours)
       KEYCLOAK_PASSWORD: rwXPqspCABJzqh47i723wf9
       JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
