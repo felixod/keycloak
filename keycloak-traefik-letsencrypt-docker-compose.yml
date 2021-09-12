@@ -53,7 +53,7 @@ services:
       PROXY_ADDRESS_FORWARDING: 'true'
       KEYCLOAK_LOGLEVEL: WARN
     volumes:
-      - "/opt/jboss/keycloak/themes/SamGUPS:/srv/docker/keycloak-theme"
+      - "/srv/docker/keycloak-theme:/opt/jboss/keycloak/themes/SamGUPS"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/"]
       interval: 10s
