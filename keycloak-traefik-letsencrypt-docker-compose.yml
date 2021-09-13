@@ -33,7 +33,7 @@ services:
 
   keycloak:
     # Image tag (replace with yours)
-    image: playaru/keycloak-russian
+    image: jboss/keycloak:15.0.2
     environment:
       DB_VENDOR: postgres
       DB_ADDR: postgres
